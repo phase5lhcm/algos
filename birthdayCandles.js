@@ -14,9 +14,9 @@ function birthdayCandles(candles){
         candleCount[keys] = ++candleCount[keys] || 1;
       }
     candles.forEach(countFunc);
-   // console.log(candleCount)
+   console.log(candleCount)
     const numOccurences = Object.values(candleCount);
-   // console.log(numOccurences);
+   console.log(numOccurences);
     // find the largest value 
     const max = Math.max(...numOccurences);
     return max;
