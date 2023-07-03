@@ -6,8 +6,11 @@ function sorter(arr){
     
     let leftArr = [];
     let rightArr = [];
-    let pivot = arr[0];
+    // pay attention to where you get your pivot from,
+    // you must not include it when you begin sorting
+    let pivot = arr[0]; 
 
+    // i begins at 1 to exclude pivot
     for(let i = 1; i < arr.length; i++){
         if(arr[i] < pivot){
             leftArr.push(arr[i])

@@ -5,7 +5,7 @@ function findMostFrequent(arr){
     let countFunc = keys => { obj[keys] = ++obj[keys] || 1 }
     arr.forEach(countFunc);
     for(ele in obj){
-      console.log(obj[ele])
+      console.log(ele)
     }
 
 
