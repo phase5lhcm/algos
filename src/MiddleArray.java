@@ -1,4 +1,5 @@
 import java.sql.Array;
+import java.util.Arrays;
 
 // Write a function called middle that takes an array and returns a
 // new array that contains all but the first and last elements.
@@ -32,6 +33,6 @@ public class MiddleArray {
     public static void main(String[] args){
         int[] arr = {2,3,4,5,6,7};
         int[] newMiddleArr = middle(arr);
-        System.out.println(newMiddleArr);
+        System.out.println(Arrays.toString(newMiddleArr));
     }
 }
