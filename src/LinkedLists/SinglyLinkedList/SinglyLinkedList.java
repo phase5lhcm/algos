@@ -52,4 +52,37 @@ public class SinglyLinkedList {
         }
         size += 1;
     }
+    // Traverse a SinglyLinkedList
+    public void traverseSinglyLinkedList(){
+        if(head == null){
+            System.out.println("The linked list does not exist");
+        } else{
+            Node tempNode = head;
+            for(int i = 0; i < size; i++){
+                System.out.println("temp node value: " + tempNode.value);
+                if(i != size -1){
+                    System.out.println(" ->");
+                }
+                tempNode = tempNode.nextNodeReference;
+            }
+        }
+        System.out.println("\n");
+    }
+    // Search for a node
+    boolean searchNode(int nodeValue){
+        // if head is not null then our linked list does exist
+        if(head != null){
+            Node tempNode = head;
+            for(int i = 0; i < size; i++){
+                if(tempNode.value == nodeValue){
+                    System.out.println("Found node at location: " + i + "\n");
+                    return true;
+                }
+                tempNode = tempNode.nextNodeReference;
+
+            }
+        }
+        System.out.println("Node not found");
+        return false;
+    }
 }
