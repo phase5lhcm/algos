@@ -85,4 +85,41 @@ public class SinglyLinkedList {
         System.out.println("Node not found");
         return false;
     }
+    // Deleting a node from a SinglyLinkedList
+    public void deleteNode(int location){
+        if(head == null){
+            System.out.println("The list does not exist");
+            return;
+        } else if (location == 0) {
+            // first node is deleted from memory
+            head = head.nextNodeReference;
+            size -= 1;
+            if(size == 0){
+                tail = null;
+            }
+        } else if (location >= size) {
+            Node tempNode = head;
+            for(int i = 0; i < size -1; i++){
+                tempNode = tempNode.nextNodeReference;
+            }
+            // deletion if we have one element in list
+            if(tempNode == head){
+                tail = head = null;
+                size -= 1;
+                return;
+            }
+            // deletion if we have more than one element in our list
+            tempNode.nextNodeReference = null;
+            tail = tempNode;
+            size -= 1;
+        } else {
+            // deletion given location
+            Node tempNode = head;
+            for(int i = 0; i < location -1; i++){
+                tempNode = tempNode.nextNodeReference;
+            }
+            tempNode.nextNodeReference = tempNode.nextNodeReference.nextNodeReference;
+            size -= 1;
+        }
+    }
 }

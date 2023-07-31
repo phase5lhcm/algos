@@ -13,7 +13,10 @@ public class Main {
         sLL.insertIntLinkedList(8, 2);
         sLL.insertIntLinkedList(9, 3);
         sLL.traverseSinglyLinkedList();
-        sLL.searchNode(9);
+      //  sLL.searchNode(9);
+        sLL.deleteNode(3);
+        sLL.traverseSinglyLinkedList();
 
     }
+
 }
