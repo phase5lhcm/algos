@@ -8,7 +8,7 @@ public class SinglyLinkedList {
     // we will increment size each time our list grows
     public int size;
 
-    public Node createSinglyLinkedList(int nodeValue){
+    public Node createSinglyLinkedList(int nodeValue) {
         head = new Node();
         Node node = new Node();
         node.nextNodeReference = null;
@@ -20,17 +20,17 @@ public class SinglyLinkedList {
     }
 
     // Insert a node at any given location
-    public void insertIntLinkedList(int nodeValue, int location){
+    public void insertIntLinkedList(int nodeValue, int location) {
         Node node = new Node();
         node.value = nodeValue;
         // check if the linkedlist is already created
         // we will know this if head is null
         // if head is null, create a linked list
-        if(head == null){
+        if (head == null) {
             // create a singly linked list with at least one node
             createSinglyLinkedList(nodeValue);
             return;
-        } else if(location == 0){
+        } else if (location == 0) {
             // if a node already exists, go ahead and re-assign the references
             node.nextNodeReference = head;
             head = node;
@@ -42,7 +42,7 @@ public class SinglyLinkedList {
         } else { // add the node to a specified location
             Node tempNode = head;
             int index = 0;
-            while(index < location -1){ // loop thru the list to find where we are inserting the node
+            while (index < location - 1) { // loop thru the list to find where we are inserting the node
                 tempNode = tempNode.nextNodeReference;
                 index++;
             }
@@ -52,15 +52,16 @@ public class SinglyLinkedList {
         }
         size += 1;
     }
+
     // Traverse a SinglyLinkedList
-    public void traverseSinglyLinkedList(){
-        if(head == null){
+    public void traverseSinglyLinkedList() {
+        if (head == null) {
             System.out.println("The linked list does not exist");
-        } else{
+        } else {
             Node tempNode = head;
-            for(int i = 0; i < size; i++){
+            for (int i = 0; i < size; i++) {
                 System.out.println("temp node value: " + tempNode.value);
-                if(i != size -1){
+                if (i != size - 1) {
                     System.out.println(" ->");
                 }
                 tempNode = tempNode.nextNodeReference;
@@ -68,13 +69,14 @@ public class SinglyLinkedList {
         }
         System.out.println("\n");
     }
+
     // Search for a node
-    boolean searchNode(int nodeValue){
+    boolean searchNode(int nodeValue) {
         // if head is not null then our linked list does exist
-        if(head != null){
+        if (head != null) {
             Node tempNode = head;
-            for(int i = 0; i < size; i++){
-                if(tempNode.value == nodeValue){
+            for (int i = 0; i < size; i++) {
+                if (tempNode.value == nodeValue) {
                     System.out.println("Found node at location: " + i + "\n");
                     return true;
                 }
@@ -85,25 +87,26 @@ public class SinglyLinkedList {
         System.out.println("Node not found");
         return false;
     }
+
     // Deleting a node from a SinglyLinkedList
-    public void deleteNode(int location){
-        if(head == null){
+    public void deleteNode(int location) {
+        if (head == null) {
             System.out.println("The list does not exist");
             return;
         } else if (location == 0) {
             // first node is deleted from memory
             head = head.nextNodeReference;
             size -= 1;
-            if(size == 0){
+            if (size == 0) {
                 tail = null;
             }
         } else if (location >= size) {
             Node tempNode = head;
-            for(int i = 0; i < size -1; i++){
+            for (int i = 0; i < size - 1; i++) {
                 tempNode = tempNode.nextNodeReference;
             }
             // deletion if we have one element in list
-            if(tempNode == head){
+            if (tempNode == head) {
                 tail = head = null;
                 size -= 1;
                 return;
@@ -115,11 +118,19 @@ public class SinglyLinkedList {
         } else {
             // deletion given location
             Node tempNode = head;
-            for(int i = 0; i < location -1; i++){
+            for (int i = 0; i < location - 1; i++) {
                 tempNode = tempNode.nextNodeReference;
             }
             tempNode.nextNodeReference = tempNode.nextNodeReference.nextNodeReference;
             size -= 1;
         }
     }
+
+    // Delete an entire SinglyLinkedList
+    public void deleteEntireSinglyLinkedList() {
+        head = null;
+        tail = null;
+        System.out.println("Entire list successfully deleted");
+    }
 }
+
