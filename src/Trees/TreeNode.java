@@ -17,12 +17,12 @@ public class TreeNode {
     }
 
     public String printChildren(int nodeLevel){
-        String returnVal;
-        returnVal = " ".repeat(nodeLevel)+data+"\n";
+        StringBuilder returnVal;
+        returnVal = new StringBuilder(" ".repeat(nodeLevel) + data + "\n");
         for(TreeNode node: this.children){
-            returnVal += node.printChildren(nodeLevel + 1);
+            returnVal.append(node.printChildren(nodeLevel + 1));
         }
-        return returnVal;
+        return returnVal.toString();
     }
 
 }
