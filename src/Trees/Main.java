@@ -51,6 +51,7 @@ public class Main {
 
 //      binaryTreeLL.preOrderTraversal(binaryTreeLL.rootNode);
 //      binaryTreeLL.inOrderTraversal(binaryTreeLL.rootNode);
-      binaryTreeLL.postOrderTraversal(binaryTreeLL.rootNode);
+//      binaryTreeLL.postOrderTraversal(binaryTreeLL.rootNode);
+      binaryTreeLL.levelOrder();
     }
 }

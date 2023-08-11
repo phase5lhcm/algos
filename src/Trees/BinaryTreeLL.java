@@ -1,5 +1,8 @@
 package Trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTreeLL {
     public BinaryNode rootNode;
 
@@ -44,6 +47,26 @@ public class BinaryTreeLL {
         postOrderTraversal(node.left);
         postOrderTraversal(node.right);
         System.out.print(node.value + " ");
+
+    }
+
+    // Level order traversal - travels from root node to leftmost node of left subtree to rightmost node of right subtree
+    // for each level in the tree. Implemented with a Queue to make use of the FIFO method
+    void levelOrder(){
+        // step 1 - create a Queue
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.add(rootNode);
+
+        while(!queue.isEmpty()){
+            BinaryNode presentNode = queue.remove();
+            System.out.print(presentNode.value + " ");
+            if(presentNode.left != null){
+                queue.add(presentNode.left);
+            }
+            if(presentNode.right != null){
+                queue.add(presentNode.right);
+            }
+        }
 
     }
 
